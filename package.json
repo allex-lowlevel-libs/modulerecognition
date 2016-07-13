@@ -1,0 +1,25 @@
+{
+  "name": "allex_modulerecognitionlowlevellib",
+  "version": "1.0.0",
+  "description": "Lib for recognizing AllexJS symbolic module names",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allex-lowlevel-libs/modulerecognition.git"
+  },
+  "keywords": [
+    "ecosystem:AllexJS",
+    "module",
+    "recognition",
+    "lib"
+  ],
+  "author": "Andrija Petrovic <andrija.hers@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allex-lowlevel-libs/modulerecognition/issues"
+  },
+  "homepage": "https://github.com/allex-lowlevel-libs/modulerecognition#readme"
+}
