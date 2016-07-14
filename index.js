@@ -36,6 +36,7 @@ function createModuleRecognition (getAlias) {
     }
   }
   function recognizeAllex(missingmodulename, additional_suffices, default_suffix){
+    var resultobj, _index, repo, aliasdata, suffices;
     if(!missingmodulename){
       return null;
     }
@@ -45,11 +46,10 @@ function createModuleRecognition (getAlias) {
       return shortNotationExpander(missingmodulename, default_suffix);
     } 
 
-    var _index = missingmodulename.indexOf('_');
+    _index = missingmodulename.indexOf('_');
     if (_index < 1) return null;
-    var repo = missingmodulename.substring (0, _index),
-      aliasdata = getAlias(repo),
-      suffices;
+    repo = missingmodulename.substring (0, _index);
+    aliasdata = getAlias(repo);
 
     if (!aliasdata.git) return null;
 
