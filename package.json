@@ -1,6 +1,6 @@
 {
   "name": "allex_modulerecognitionlowlevellib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lib for recognizing AllexJS symbolic module names",
   "main": "index.js",
   "scripts": {
