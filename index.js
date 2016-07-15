@@ -5,7 +5,7 @@ function createModuleRecognition (getAlias) {
       shortNotationExpander = require('./shortnotationresolver')(getAlias);
 
 
-  function checkForSuffix(repo, mmn,resultobj,suffix){
+  function checkForSuffix(repo, mmn, resultobj,suffix){
     var servicename, namespace, secondunderscorepos, group;
     if(mmn.lastIndexOf(suffix)===mmn.length-suffix.length){
       servicename = mmn.substring(repo.alias.length+1,mmn.length-suffix.length); //repo+1: incude '_' as well ...
@@ -53,7 +53,7 @@ function createModuleRecognition (getAlias) {
 
     if (!aliasdata.git) return null;
 
-    resultobj = {result:null};
+    var resultobj = {result:null};
 
     if (additional_suffices) {
       suffices = _allexsuffices.concat(additional_suffices);
