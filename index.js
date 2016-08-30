@@ -2,7 +2,8 @@ function createModuleRecognition (getAlias) {
   'use strict';
   var _allexprefix = 'allex_',
       _allexsuffices = ['service','parser','storage','lib'],
-      shortNotationExpander = require('./shortnotationresolver')(getAlias);
+      shortNotationExpander = require('./shortnotationresolver')(getAlias),
+      GITURLREGEXP = /((git|ssh|http(s)?)|(git@[\w\.]+))(:(\/\/)?)([\w\.@\:/\-~]+)(\.git)(\/)?/; ///should be tested more ... visit https://www.debuggex.com/
 
 
   function checkForSuffix(repo, mmn, resultobj,suffix){
@@ -36,6 +37,7 @@ function createModuleRecognition (getAlias) {
     }
   }
   function recognizeAllex(missingmodulename, additional_suffices, default_suffix){
+    if (missingmodulename.match (GITURLREGEXP)) return null;
     var resultobj, _index, repo, aliasdata, suffices;
     if(!missingmodulename){
       return null;
