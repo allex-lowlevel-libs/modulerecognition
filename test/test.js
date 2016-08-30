@@ -10,8 +10,8 @@ function fakeGetAlias(alias) {
 
 describe('Test', function () {
   it ('repotest', function () {
-    var r = lib('git@github.com:allex-lowlevel-libs/modulerecognition.git');
-    expect(r).to.be.null;
+    expect(lib('git@github.com:allex-lowlevel-libs/modulerecognition.git')).to.be.null;
+    expect(lib('git@gitlab.hers.rs:allex_bcsystem_webapps/casino')).to.be.null;
   })
   it ('service', function () {
     var r = lib('allex:master');
