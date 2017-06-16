@@ -1,6 +1,6 @@
 {
   "name": "allex_modulerecognitionlowlevellib",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Lib for recognizing AllexJS symbolic module names",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,22 @@
     "recognition",
     "lib"
   ],
+  "devDependencies": {
+    "chai": "4.x",
+    "chai-as-promised": "7.x",
+    "allex_avltreelowlevellib": "1.x",
+    "allex_checkslowlevellib": "1.x",
+    "allex_destructionlowlevellib": "3.x",
+    "allex_doublelinkedlistbaselowlevellib": "1.x",
+    "allex_eventemitterlowlevellib": "2.x",
+    "allex_fifolowlevellib": "1.x",
+    "allex_functionmanipulationlowlevellib": "1.x",
+    "allex_inheritlowlevellib": "1.x",
+    "allex_maplowlevellib": "1.x",
+    "allex_qextlowlevellib": "2.x",
+    "allex_qlowlevellib": "1.x",
+    "allex_timeoutlowlevellib": "1.x"
+  },
   "author": "Andrija Petrovic <andrija.hers@gmail.com>",
   "license": "ISC",
   "bugs": {
