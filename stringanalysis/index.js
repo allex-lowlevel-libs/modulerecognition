@@ -7,8 +7,9 @@ function createModuleRecognition (q, qlib) {
 
 
   function checkForSuffix(mmn, mmns, resultobj, suffix){
-    var reponame, namespace, secondunderscorepos, group;
-    if(mmns.lastIndexOf(suffix.group)!==mmns.length-suffix.group.length){
+    var reponame, namespace, secondunderscorepos, group, lastindex;
+    lastindex = mmns.lastIndexOf(suffix.group);
+    if(lastindex<1 || lastindex!==mmns.length-suffix.group.length){
       return resultobj;
     }
     reponame = mmn.substring(suffix.username.length+1,mmn.length-suffix.group.length+1);
