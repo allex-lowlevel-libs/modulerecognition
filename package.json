@@ -1,6 +1,6 @@
 {
   "name": "allex_modulerecognitionlowlevellib",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Lib for recognizing AllexJS symbolic module names",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,9 @@
     "allex_qextlowlevellib": "2.x",
     "allex_qlowlevellib": "1.x",
     "allex_timeoutlowlevellib": "1.x"
+  },
+  "browser" : {
+    "./nsfetching/fetchercreator.js": "./nsfetching/webfetchercreator.js"
   },
   "author": "Andrija Petrovic <andrija.hers@gmail.com>",
   "license": "ISC",
