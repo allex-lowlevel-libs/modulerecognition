@@ -47,6 +47,9 @@ function createShortNotationExpander (q, qlib) {
         ret.npmstring = descuserlib.gitsshnpmstring(nsdesc, ret.reponame);
         ret.gitclonestring = descuserlib.gitclonestring(nsdesc, ret.reponame);
         return ret;
+      case 'npm':
+        ret.npmstring = ret.modulename;
+        return ret;
       default:
         return null;
     }

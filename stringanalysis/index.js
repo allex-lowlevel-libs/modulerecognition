@@ -26,24 +26,35 @@ function createModuleRecognition (q, qlib) {
     if(!group){
       group = suffix.username+'_'+suffix.group;
     }
+    if (resultobj.matchlen >= suffix.group.length) {
+      return resultobj;
+    }
 
     switch (suffix.type) {
       case 'git':
-        if (resultobj.matchlen < suffix.group.length) {
-          resultobj.matchlen = suffix.group.length;
-          resultobj.result = {
-            modulename: mmn,
-            username: suffix.username,
-            gitclonestring: descuserlib.gitclonestring(suffix, reponame),
-            npmstring : descuserlib.gitsshnpmstring(suffix, reponame),
-            group: suffix.group,
-            reponame: reponame,
-            namespace: namespace
-          };
-        }
+        resultobj.matchlen = suffix.group.length;
+        resultobj.result = {
+          modulename: mmn,
+          username: suffix.username,
+          gitclonestring: descuserlib.gitclonestring(suffix, reponame),
+          npmstring : descuserlib.gitsshnpmstring(suffix, reponame),
+          group: suffix.group,
+          reponame: reponame,
+          namespace: namespace
+        };
+        return resultobj;
+      case 'npm':
+        resultobj.matchlen = suffix.group.length;
+        resultobj.result = {
+          modulename: mmn,
+          username: suffix.username,
+          npmstring : mmn,
+          group: suffix.group,
+          namespace: namespace
+        };
         return resultobj;
     }
-    return resultobj
+    return resultobj;
   }
   function recognizeAllex(modulename, nsdescfetcherfunc){
     var resultobj;
