@@ -13,6 +13,9 @@ function createResolver (isString, isFunction, q, qlib) {
     this.nsDescFetcher = null;
   };
   Resolver.prototype.resolve = function (namespacestring) {
+    if ('object' === typeof namespacestring && namespacestring && 'takeauxfrompath' in namespacestring && isString(namespacestring.takeauxfrompath)) {
+      return this.nsDescFetcher(namespacestring);
+    }
     if (!isString(namespacestring)) {
       return q(null);
     }

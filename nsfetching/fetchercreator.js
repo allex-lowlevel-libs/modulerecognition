@@ -53,7 +53,10 @@ function createNSFetcher (q, qlib) {
     return require(nsfilepath);
   }
 
-  function fetchNSS () {
+  function fetchNSS (auxpath) {
+    if (auxpath) {
+      return requirer(Path.join(auxpath, _nsfilename));
+    }
     return findNSFile().then(requirer);
   }
 
