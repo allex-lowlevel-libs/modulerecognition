@@ -19,9 +19,9 @@ function createResolver (isString, isFunction, q, qlib) {
     if (!isString(namespacestring)) {
       return q(null);
     }
-    return qlib.promise2decision(stringAnalyzer(namespacestring, this.nsDescFetcher), this.onAnalysys.bind(this, namespacestring));
+    return qlib.promise2decision(stringAnalyzer(namespacestring, this.nsDescFetcher), this.onAnalysis.bind(this, namespacestring));
   };
-  Resolver.prototype.onAnalysys = function (namespacestring, result) {
+  Resolver.prototype.onAnalysis = function (namespacestring, result) {
     if (!result) {
       return namespacestring;
     }

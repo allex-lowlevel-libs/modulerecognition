@@ -26,9 +26,9 @@ function bootUp () {
 
 
 var _nss = [
-  {username: 'allex', namespace: null, group: 'services', type: 'git', user: 'git', server: 'gitlab.hers.rs', repogroup: 'allex_services'},
-  {username: 'allex', namespace: null, group: 'libs', type: 'git', user: 'git', server: 'gitlab.hers.rs', repogroup: 'allex_libs'},
-  {username: 'allex', namespace: 'indata', group: 'libs', type: 'git', user: 'git', server: 'gitlab.hers.rs', repogroup: 'allex_indata_libs'}
+  {username: "allex", namespace: null, group: "services", type: "git", user: "git", server: "github.com", repogroup: "allex-services"},
+  {username: "allex", namespace: null, group: "libs", type: "git", user: "git", server: "github.com", repogroup: "allex-libs"},
+  {username: "allex", namespace: "topclient", group: "libs", type: "git", user: "git", server: "gitlab.topclient.info", repogroup: "allex_libs"}
 ];
 
 function nsDescFetcher (username, nsname, nsgroup) {
@@ -71,7 +71,8 @@ describe ('Resolver Tests', function () {
       username: 'allex',
       namespace: null,
       group: 'services',
-      npmstring: 'git+ssh://git@gitlab.hers.rs/allex_services/master.git'
+      npmstring: 'git+ssh://git@github.com/allex-services/master.git',
+      gitclonestring: 'git@github.com:allex-services/master.git'
     });
   });
   it ('Resolve a 3-segment namespace', function () {
@@ -81,17 +82,19 @@ describe ('Resolver Tests', function () {
       username: 'allex',
       namespace: null,
       group: 'libs',
-      npmstring: 'git+ssh://git@gitlab.hers.rs/allex_libs/buffer.git'
+      npmstring: 'git+ssh://git@github.com/allex-libs/buffer.git',
+      gitclonestring: 'git@github.com:allex-libs/buffer.git'
     });
   });
   it ('Resolve a 4-segment namespace', function () {
-    return expect(Resolver.resolve('allex:indata_fix:lib')).to.eventually.deep.equal({
-      modulename: 'allex__indata_fixlib',
+    return expect(Resolver.resolve('allex:topclient_fix:lib')).to.eventually.deep.equal({
+      modulename: 'allex__topclient_fixlib',
       reponame: 'fix',
       username: 'allex',
-      namespace: 'indata',
+      namespace: 'topclient',
       group: 'libs',
-      npmstring: 'git+ssh://git@gitlab.hers.rs/allex_indata_libs/fix.git'
+      npmstring: 'git+ssh://git@gitlab.topclient.info/allex_libs/fix.git',
+      gitclonestring: 'git@gitlab.topclient.info:allex_libs/fix.git'
     });
   });
   it ('Resolve a 2-segment string', function () {
@@ -101,8 +104,8 @@ describe ('Resolver Tests', function () {
       username: 'allex',
       namespace: null,
       group: 'services',
-      gitclonestring: 'git@gitlab.hers.rs:allex_services/master.git',
-      npmstring: 'git+ssh://git@gitlab.hers.rs/allex_services/master.git'
+      npmstring: 'git+ssh://git@github.com/allex-services/master.git',
+      gitclonestring: 'git@github.com:allex-services/master.git'
     });
   });
   it ('Resolve a 3-segment string', function () {
@@ -112,19 +115,19 @@ describe ('Resolver Tests', function () {
       username: 'allex',
       namespace: null,
       group: 'libs',
-      gitclonestring: 'git@gitlab.hers.rs:allex_libs/buffer.git',
-      npmstring: 'git+ssh://git@gitlab.hers.rs/allex_libs/buffer.git'
+      npmstring: 'git+ssh://git@github.com/allex-libs/buffer.git',
+      gitclonestring: 'git@github.com:allex-libs/buffer.git'
     });
   });
   it ('Resolve a 4-segment string', function () {
-    return expect(Resolver.resolve('allex__indata_fixlib')).to.eventually.deep.equal({
-      modulename: 'allex__indata_fixlib',
+    return expect(Resolver.resolve('allex__topclient_fixlib')).to.eventually.deep.equal({
+      modulename: 'allex__topclient_fixlib',
       reponame: 'fix',
       username: 'allex',
-      namespace: 'indata',
+      namespace: 'topclient',
       group: 'libs',
-      gitclonestring: 'git@gitlab.hers.rs:allex_indata_libs/fix.git',
-      npmstring: 'git+ssh://git@gitlab.hers.rs/allex_indata_libs/fix.git'
+      gitclonestring: 'git@gitlab.topclient.info:allex_libs/fix.git',
+      npmstring: 'git+ssh://git@gitlab.topclient.info/allex_libs/fix.git'
     });
   });
 });

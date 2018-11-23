@@ -1,0 +1,6 @@
+[
+{"username": "allex", "namespace": null, "group": "services", "type": "git", "user": "git", "server": "github.com", "repogroup": "allex-services"},
+{"username": "allex", "namespace": null, "group": "libs", "type": "git", "user": "git", "server": "github.com", "repogroup": "allex-libs"},
+{"username": "allex", "namespace": "topclient", "group": "libs", "type": "git", "user": "git", "server": "gitlab.topclient.info", "repogroup": "allex_libs"},
+{"username": "allex", "namespace": null, "group": "lowlevellibs", "type": "git", "user": "git", "server": "github.com", "repogroup": "allex-lowlevel-libs"}
+]
